@@ -32,6 +32,6 @@ export default class Account extends Model<
   @Column(DataType.INTEGER)
   declare r_user_id: number;
 
-  @BelongsTo(() => User)
+  @BelongsTo(() => User, { foreignKey: 'r_user_id', as: 'User' })
   User?: User;
 }

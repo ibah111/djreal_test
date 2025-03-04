@@ -25,9 +25,12 @@ export default class User extends Model<
   @Column(DataType.STRING)
   declare name: string;
 
-  @HasMany(() => Account)
-  Accounts?: Account;
+  @HasMany(() => Account, { foreignKey: 'r_user_id', as: 'Accounts' })
+  Accounts?: Account[];
 
-  @HasMany(() => Payment)
+  @HasMany(() => Payment, {
+    as: 'Payments',
+    foreignKey: 'r_user_id',
+  })
   Payments: Payment;
 }
