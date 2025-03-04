@@ -16,7 +16,7 @@
    cd template-typescript-nestjs-app
 ```
 
-### Redis
+### Redis (не надо, заглушен)
 
 ```bash
     docker run --name my-redis -p 6379:6379 -d redis

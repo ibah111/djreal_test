@@ -3,6 +3,8 @@ import DatabaseModule from './databases';
 import { RedisModule } from './redis/redis.module';
 
 @Module({
-  imports: [DatabaseModule, RedisModule],
+  imports: [DatabaseModule,
+  //  RedisModule
+  ],
 })
 export default class ModulesModule {}
