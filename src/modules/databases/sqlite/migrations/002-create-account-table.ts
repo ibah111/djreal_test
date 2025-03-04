@@ -16,12 +16,12 @@ export const up: MigrationFn<QueryInterface> = ({ context }) =>
             autoIncrement: true,
           },
           balance: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.FLOAT,
             allowNull: false,
           },
           r_user_id: {
             allowNull: false,
-            type: DataTypes.FLOAT,
+            type: DataTypes.INTEGER,
           },
           createdAt: {
             allowNull: false,
