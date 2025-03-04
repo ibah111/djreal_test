@@ -15,12 +15,21 @@ export default class PaymentService {
     private readonly modelPayment: typeof Payment,
   ) {}
 
-  async updateAccount({}: PaymentUpdateInput) {
+  async updateAccount({ account_id, update_sum }: PaymentUpdateInput) {
     const acc = await this.modelAccount.findOne({
       where: {
-        id: {},
+        id: account_id,
       },
+      rejectOnEmpty: true,
     });
+    const new_balance = acc.balance + update_sum;
+    return acc
+      .update({
+        balance: new_balance,
+      })
+      .then(
+        (rs) => `Баланс пополнен на сумму ${update_sum}. Баланс: ${rs.balance}`,
+      );
   }
 
   async pay({ user_id: id, payment_sum, user_account_id }: PaymentInput) {
