@@ -1,7 +1,7 @@
 import { DataTypes, QueryInterface } from 'sequelize';
 import { MigrationFn } from 'umzug';
 
-const tableName = 'Users';
+const tableName = 'Accounts';
 
 export const up: MigrationFn<QueryInterface> = ({ context }) =>
   context.sequelize.transaction((t) =>
