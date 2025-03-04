@@ -1,5 +1,5 @@
 import { ModelCtor } from 'sequelize-typescript';
-import User from './user.balance';
+import User from './user.model';
 import Account from './account.model';
 import Payment from './payment.model';
 

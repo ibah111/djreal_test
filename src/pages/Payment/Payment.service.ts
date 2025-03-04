@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import Account from 'src/modules/databases/sqlite/models/account.model';
 import Payment from 'src/modules/databases/sqlite/models/payment.model';
-import User from 'src/modules/databases/sqlite/models/user.balance';
+import User from 'src/modules/databases/sqlite/models/user.model';
 import { PaymentUpdateInput, PaymentInput } from './Payment.input';
 
 @Injectable()

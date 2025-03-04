@@ -9,7 +9,7 @@ import {
   Table,
   Validate,
 } from 'sequelize-typescript';
-import User from './user.balance';
+import User from './user.model';
 
 @Table({
   tableName: 'Accounts',

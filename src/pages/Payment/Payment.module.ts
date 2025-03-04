@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import PaymentController from './Payment.controller';
 import UserService from './Payment.service';
-import User from 'src/modules/databases/sqlite/models/user.balance';
+import User from 'src/modules/databases/sqlite/models/user.model';
 import Account from 'src/modules/databases/sqlite/models/account.model';
 import Payment from 'src/modules/databases/sqlite/models/payment.model';
 
