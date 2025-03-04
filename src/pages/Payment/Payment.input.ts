@@ -2,16 +2,25 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsNumber } from 'class-validator';
 
 export class PaymentInput {
-  @ApiProperty()
+  @ApiProperty({
+    description: 'ID пользователя',
+    default: 1,
+  })
   @IsNumber()
   user_id: number;
 
-  @ApiProperty()
+  @ApiProperty({
+    description: 'С какого кошелька проводится оплата',
+    default: 1,
+  })
   @IsNumber()
   user_account_id: number;
 
   @IsNumber()
-  @ApiProperty()
+  @ApiProperty({
+    description: 'Сумма платежа',
+    default: 100,
+  })
   payment_sum: number;
 }
 

@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
-import UserModule from './Payment/Payment.module';
+import PaymentModule from './Payment/Payment.module';
+import UserModule from './User/User.module';
 
 @Module({
-  imports: [UserModule],
+  imports: [PaymentModule, UserModule],
 })
 export default class PagesModule {}
