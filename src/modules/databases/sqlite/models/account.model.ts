@@ -25,12 +25,12 @@ export default class Account extends Model<
     min: 0,
   })
   @Column(DataType.FLOAT)
-  balance: number;
+  declare balance: number;
 
   @ForeignKey(() => User)
   @AllowNull(false)
   @Column(DataType.INTEGER)
-  r_user_id: number;
+  declare r_user_id: number;
 
   @BelongsTo(() => User)
   User?: User;

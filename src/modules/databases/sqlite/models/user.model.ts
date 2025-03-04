@@ -10,6 +10,7 @@ import {
   Unique,
 } from 'sequelize-typescript';
 import Account from './account.model';
+import Payment from './payment.model';
 
 @Table({
   tableName: 'Users',
@@ -22,8 +23,11 @@ export default class User extends Model<
   @Unique
   @AllowNull(false)
   @Column(DataType.STRING)
-  name: string;
+  declare name: string;
 
   @HasMany(() => Account)
   Accounts?: Account;
+
+  @HasMany(() => Payment)
+  Payments: Payment;
 }
