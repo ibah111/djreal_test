@@ -34,23 +34,33 @@ export default class PaymentService {
 
   async pay({ user_id: id, payment_sum, user_account_id }: PaymentInput) {
     const user = await this.modelUser.findOne({
+      raw: false,
       rejectOnEmpty: new Error(`User with id: ${id} not found`),
       where: {
         id,
       },
+      attributes: ['id', 'name'],
+      paranoid: false,
       include: [
         {
           model: Account,
-          where: {
-            id: user_account_id,
-          },
+          as: 'Accounts',
+          where: { id: user_account_id },
           required: true,
         },
       ],
     });
-    const acc = user.Accounts;
-    if (acc) {
-      const new_balance = acc.balance - payment_sum;
+
+    const acc_values = user.dataValues.Accounts![0].dataValues;
+    if (acc_values) {
+      const acc = await this.modelAccount.findOne({
+        where: {
+          id: acc_values.id,
+        },
+        rejectOnEmpty: true,
+      });
+      const new_balance = acc_values.balance - payment_sum;
+      if (new_balance < 0) throw Error('Недостаточно средств');
       return await acc
         .update({
           balance: new_balance,
