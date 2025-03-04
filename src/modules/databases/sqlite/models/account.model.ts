@@ -4,6 +4,7 @@ import {
   BelongsTo,
   Column,
   DataType,
+  ForeignKey,
   Model,
   Table,
   Validate,
@@ -26,6 +27,7 @@ export default class Account extends Model<
   @Column(DataType.FLOAT)
   balance: number;
 
+  @ForeignKey(() => User)
   @AllowNull(false)
   @Column(DataType.INTEGER)
   r_user_id: number;
